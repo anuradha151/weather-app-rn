@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, FlatList, View, StatusBar, ImageBackground } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Fontisto } from '@expo/vector-icons';
+import ListItem from '../components/ListItem';
 
 const DATA = [
     {
@@ -54,22 +54,12 @@ const DATA = [
     }
 ]
 
-const Item = (props) => {
-    const { dt_txt, min, max, condition } = props;
-    return (
-        <View style={styles.item}>
-            <Fontisto name="day-sunny" size={50} color="white" />
-            <Text style={styles.date}>{dt_txt}</Text>
-            <Text style={styles.temp}>{min}</Text>
-            <Text style={styles.temp}>{max}</Text>
-        </View>
-    )
-}
+
 
 const UpComingWeather = () => {
 
     const renderItem = ({ item }) => (
-        <Item
+        <ListItem
             condition={item.weather[0].main}
             dt_txt={item.dt_txt}
             min={item.main.temp_min}
@@ -77,17 +67,19 @@ const UpComingWeather = () => {
         />
     )
 
+    const { container, image } = styles;
+
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={container}>
             <Text>Upcoming Weather</Text>
             <ImageBackground
                 source={require('../../assets/clouds.jpg')}
-                style={styles.image} >
-            <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={item => item.dt_txt}
-            />
+                style={image} >
+                <FlatList
+                    data={DATA}
+                    renderItem={renderItem}
+                    keyExtractor={item => item.dt_txt}
+                />
             </ImageBackground>
         </SafeAreaView>
     );
@@ -98,25 +90,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: StatusBar.currentHeight || 0,
         backgroundColor: 'royalblue',
-    },
-    item: {
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        borderWidth: 5,
-        backgroundColor: 'pink'
-
-    },
-    temp: {
-        fontSize: 20,
-        color: 'white',
-    },
-    date: {
-        fontSize: 15,
-        color: 'white',
     },
     image: {
         flex: 1,
