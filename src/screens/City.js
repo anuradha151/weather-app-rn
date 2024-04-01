@@ -12,7 +12,7 @@ const City = () => {
             <ImageBackground source={require('../../assets/city-back.jpg')} style={styles.image}>
                 <Text style={[styles.cityText, styles.cityName]}>Galle</Text>
                 <Text style={[styles.cityText, styles.countryName]}>Sri Lanka</Text>
-                <View style={styles.populationWrapper}>
+                <View style={[styles.populationWrapper, styles.rowLayout]}>
                     <IconText icon="user" text="8000" color="black" bodyTextStyles={styles.populationText} />
                 </View>
                 <View style={styles.riseSetWrapper}>
@@ -52,9 +52,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     populationWrapper: {
-        flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
         marginTop: 30
     },
     populationText: {
@@ -63,15 +61,17 @@ const styles = StyleSheet.create({
         marginLeft: 7.5,
     },
     riseSetWrapper: {
-        flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
         marginTop: 30
     },
     riseSetText: {
         fontSize: 20,
         color: "black",
         fontWeight: "bold"
+    },
+    rowLayout: {
+        flexDirection: 'row',
+        alignItems: 'center',
     }
 
 });
