@@ -18,7 +18,15 @@ const Tabs = () => {
                 tabBarStyle: {
                     backgroundColor: 'black',
                 },
+                headerStyle: {
+                    backgroundColor: 'black',
+                },
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                    fintSize: 25,
+                    color: 'tomato'
 
+                }
             }}
         >
             <Tab.Screen name="CurrentWeather" component={CurrentWeather} options={{
