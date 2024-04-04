@@ -38,6 +38,5 @@ export const weatherType = {
         icon: 'wind',
         message: 'It might be bit damp',
         backgroundColor: '#58586e',
-    },
     }
 }
