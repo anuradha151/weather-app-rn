@@ -1,19 +1,37 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Tabs from './src/components/Tabs';
-import Counter from './src/demonstration/Counter';
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
+  const [loading, setLoading] = useState(true);
+
+  if (loading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="blue" />
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
-      <Counter />
+      <Tabs />
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  }
+});
 
 export default App;
