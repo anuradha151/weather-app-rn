@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useGetWeather } from './hooks/useGetWeather';
 
 import Tabs from './src/components/Tabs';
+import ErrorItem from './src/components/ErrorItem';
 
 
 const Tab = createBottomTabNavigator();
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color="blue" />
+      {loading ? <ActivityIndicator size="large" color="blue" /> : <ErrorItem />}
     </View>
   );
 

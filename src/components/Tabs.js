@@ -53,13 +53,21 @@ const Tabs = ({ weather }) => {
 
                 }}>
                 {() => <UpComingWeather weatherData={weather.list} />}
-                </Tab.Screen>
-            <Tab.Screen name="City" component={City} options={{
-                tabBarIcon: ({ focused }) => (
-                    <Feather name="map-pin" size={25} color={focused ? 'tomato' : 'white'} />
-                )
+            </Tab.Screen>
+            <Tab.Screen
+                name="City"
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <Feather
+                            name="map-pin"
+                            size={25}
+                            color={focused ? 'tomato' : 'white'} />
+                    )
 
-            }} />
+                }}>
+                {() => <City weatherData={weather.city} />}
+
+            </Tab.Screen>
         </Tab.Navigator>
     )
 }
