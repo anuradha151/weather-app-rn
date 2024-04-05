@@ -23,7 +23,7 @@ const Tabs = () => {
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
-                    intSize: 25,
+                    fontSize: 25,
                     color: 'tomato'
 
                 }
