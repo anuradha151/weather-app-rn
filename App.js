@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Tabs from './src/components/Tabs';
 import * as Location from 'expo-location';
+import { OPEN_WEATHERMAP_API_KEY } from '@env'
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +15,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     (async () => {
@@ -29,8 +31,8 @@ const App = () => {
   }, []);
 
 
-  
-  console.log('location', location);
+
+
 
 
   if (loading) {
