@@ -44,8 +44,7 @@ const City = ({ weatherData }) => {
 
 const styles = StyleSheet.create({
     wrapper: {
-        flex: 1,
-        marginTop: StatusBar.currentHeight || 0,
+        flex: 1
     },
     container: {
         flex: 1,
