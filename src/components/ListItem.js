@@ -1,18 +1,19 @@
 
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Fontisto } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { weatherType } from '../utilities/WeatherType';
 
 const ListItem = (props) => {
-    const { dt_txt, min, max, condition } = props;
 
+    const { dt_txt, min, max, condition } = props;
     const { item, temp, date } = styles;
+
     return (
         <View style={item}>
-            <Fontisto name="day-sunny" size={50} color="white" />
+            <Feather name={weatherType[condition].icon} size={50} color="white" />
             <Text style={date}>{dt_txt}</Text>
-            <Text style={temp}>{min}</Text>
-            <Text style={temp}>{max}</Text>
+            <Text style={temp}>{`${Math.round(min)}\u00B0/${Math.round(max)}\u00B0`}</Text>
         </View>
     )
 }
